@@ -19,7 +19,28 @@ namespace CascadingDropdownEF
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            BindStandards();
+            BindStudents();
+        }
 
+        private void BindStudents(int? standardId=null)
+        {
+            ListItem studentDefaultItem = new ListItem {Text = "--Select Student--"};
+
+
+            if (standardId != null)
+            {
+                
+            }
+        }
+
+        private void BindStandards()
+        {
+            var standards = _studentContext.Standards.ToList();
+            ddlStandard.DataSource = standards;
+            ddlStandard.DataTextField = "Name";
+            ddlStandard.DataValueField = "StandardId";
+            ddlStandard.DataBind();
         }
     }
 }

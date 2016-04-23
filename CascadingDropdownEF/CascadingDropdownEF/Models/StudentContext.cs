@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace CascadingDropdownEF.Models
 {
@@ -10,5 +11,10 @@ namespace CascadingDropdownEF.Models
         }
         public DbSet<Standard> Standards { get; set; }
         public DbSet<Student> Students { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+        }
     }
 }
