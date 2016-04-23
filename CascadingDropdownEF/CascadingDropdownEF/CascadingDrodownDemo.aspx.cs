@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using CascadingDropdownEF.Models;
 
@@ -26,8 +23,7 @@ namespace CascadingDropdownEF
         private void BindStudents(int? standardId=null)
         {
             ListItem studentDefaultItem = new ListItem {Text = "--Select Student--"};
-
-
+            
             if (standardId != null)
             {
                 var students = from student in _studentContext.Students
@@ -42,9 +38,9 @@ namespace CascadingDropdownEF
                 ddlStudent.DataTextField = "Name";
                 ddlStudent.DataValueField = "StudentId";
                 ddlStudent.DataBind();
-
-
             }
+
+            ddlStudent.Items.Insert(0,studentDefaultItem);
         }
 
         private void BindStandards()
