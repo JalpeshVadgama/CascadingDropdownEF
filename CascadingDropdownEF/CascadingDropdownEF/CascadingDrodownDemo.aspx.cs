@@ -16,12 +16,17 @@ namespace CascadingDropdownEF
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindStandards();
-            BindStudents();
+            if (!Page.IsPostBack)
+            {
+                BindStandards();
+                BindStudents();
+            }
+           
         }
 
         private void BindStudents(int? standardId=null)
         {
+            ddlStudent.Items.Clear();
             if (standardId != null)
             {
                 var students = from student in _studentContext.Students
@@ -29,7 +34,7 @@ namespace CascadingDropdownEF
                     select new
                     {
                         StudentId = student.StudentId,
-                        Name = $"{student.FirstName} {student.LastName}"
+                        Name = student.FirstName + " " + student.LastName
                     };
 
                 ddlStudent.DataSource = students.ToList();
@@ -43,6 +48,7 @@ namespace CascadingDropdownEF
 
         private void BindStandards()
         {
+            ddlStudent.Items.Clear();
             var standards = _studentContext.Standards.ToList();
             ddlStandard.DataSource = standards;
             ddlStandard.DataTextField = "Name";
