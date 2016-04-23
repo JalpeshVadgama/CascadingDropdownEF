@@ -5,7 +5,7 @@ namespace CascadingDropdownEF.Models
 {
     public class StudentContext : DbContext
     {
-        public StudentContext() : base("DefaultConnectionString")
+        public StudentContext() : base("name=StudentConnectionString")
         {
             
         }

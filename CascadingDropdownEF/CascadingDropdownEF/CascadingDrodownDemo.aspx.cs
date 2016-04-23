@@ -30,7 +30,20 @@ namespace CascadingDropdownEF
 
             if (standardId != null)
             {
-                
+                var students = from student in _studentContext.Students
+                    where student.StandardId == standardId.Value
+                    select new
+                    {
+                        StudentId = student.StudentId,
+                        Name = $"{student.FirstName} {student.LastName}"
+                    };
+
+                ddlStudent.DataSource = students.ToList();
+                ddlStudent.DataTextField = "Name";
+                ddlStudent.DataValueField = "StudentId";
+                ddlStudent.DataBind();
+
+
             }
         }
 
