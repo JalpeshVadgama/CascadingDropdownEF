@@ -54,5 +54,10 @@ namespace CascadingDropdownEF
             ListItem standardDefaultItem = new ListItem {Text = "--Select Sandard--"};
             ddlStandard.Items.Insert(0,standardDefaultItem);
         }
+
+        protected void ddlStandard_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindStudents(Convert.ToInt32(ddlStandard.SelectedValue));
+        }
     }
 }

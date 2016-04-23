@@ -8,11 +8,12 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <asp:DropDownList runat="server" ID="ddlStandard"/>
-    </div>
         <div>
-            <asp:DropDownList runat="server" ID="ddlStudent"/>
+            <asp:DropDownList runat="server" ID="ddlStandard" CssClass="dropdown" AutoPostBack="true" OnSelectedIndexChanged="ddlStandard_OnSelectedIndexChanged"/>
+        </div>
+        <br/>
+        <div>
+            <asp:DropDownList runat="server" ID="ddlStudent" CssClass="dropdown"/>
         </div>
     </form>
 </body>
