@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:DropDownList runat="server" ID="ddlStandard" CssClass="dropdown" AutoPostBack="true" OnSelectedIndexChanged="ddlStandard_OnSelectedIndexChanged"/>
+            <asp:DropDownList runat="server" ID="ddlStandard" CssClass="dropdown" AutoPostBack="true" sele="ddlStandard_OnSelectedIndexChanged"/>
         </div>
         <br/>
         <div>

@@ -22,8 +22,6 @@ namespace CascadingDropdownEF
 
         private void BindStudents(int? standardId=null)
         {
-            ListItem studentDefaultItem = new ListItem {Text = "--Select Student--"};
-            
             if (standardId != null)
             {
                 var students = from student in _studentContext.Students
@@ -40,7 +38,7 @@ namespace CascadingDropdownEF
                 ddlStudent.DataBind();
             }
 
-            ddlStudent.Items.Insert(0,studentDefaultItem);
+            ddlStudent.Items.Insert(0,"--Select Student--");
         }
 
         private void BindStandards()
@@ -51,8 +49,7 @@ namespace CascadingDropdownEF
             ddlStandard.DataValueField = "StandardId";
             ddlStandard.DataBind();
 
-            ListItem standardDefaultItem = new ListItem {Text = "--Select Sandard--"};
-            ddlStandard.Items.Insert(0,standardDefaultItem);
+            ddlStandard.Items.Insert(0,"--Select Standard--");
         }
 
         protected void ddlStandard_OnSelectedIndexChanged(object sender, EventArgs e)
