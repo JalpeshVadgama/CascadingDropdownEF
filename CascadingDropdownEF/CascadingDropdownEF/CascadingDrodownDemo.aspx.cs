@@ -50,6 +50,9 @@ namespace CascadingDropdownEF
             ddlStandard.DataTextField = "Name";
             ddlStandard.DataValueField = "StandardId";
             ddlStandard.DataBind();
+
+            ListItem standardDefaultItem = new ListItem {Text = "--Select Sandard--"};
+            ddlStandard.Items.Insert(0,standardDefaultItem);
         }
     }
 }
