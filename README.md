@@ -1,2 +1,2 @@
 # CascadingDropdownEF
-A Cascading dropdown with entity framework and asp.net web forms application
+An sample application for cascading dropdown using asp.net webforms and entity framework ORM.
